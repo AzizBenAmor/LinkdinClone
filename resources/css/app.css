@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.custom-right-margin {
+    margin-left: 12rem; /* You can adjust this value as needed */
+  }
+  .custom-top-margin {
+    margin-top: 5rem; /* You can adjust this value as needed */
+  }

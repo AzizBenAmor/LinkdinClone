@@ -13,19 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Register');
-});
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('Register');
+// });
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
+// Route::middleware(['auth','PreventBackHistory'])->group(function(){
+// Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('home');
+// });
+// Route::middleware(['guest','PreventBackHistory'])->group(function(){
+// Route::get('/login', [App\Http\Controllers\UserController::class, 'LoginIndex'])->name('LoginIndex');
+// Route::get('/', [App\Http\Controllers\UserController::class, 'RegisterIndex'])->name('RegisterIndex');
+// Route::post('/check', [App\Http\Controllers\UserController::class, 'Login'])->name('Login');
+// Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('storeUser');
+// });
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
-Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('home');
+Route::get('/' , App\Http\Livewire\Home::class)->name('home');
 });
 Route::middleware(['guest','PreventBackHistory'])->group(function(){
-Route::get('/login', [App\Http\Controllers\UserController::class, 'LoginIndex'])->name('LoginIndex');
-Route::get('/', [App\Http\Controllers\UserController::class, 'RegisterIndex'])->name('RegisterIndex');
-Route::post('/check', [App\Http\Controllers\UserController::class, 'Login'])->name('Login');
-Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('storeUser');
+Route::get('/register' , App\Http\Livewire\Register::class)->name('register');
+Route::get('/login' , App\Http\Livewire\Login::class)->name('login');
 });
